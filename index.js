@@ -7,14 +7,14 @@ require('./models/User');
 require('./services/passport');
 
 
-mongoose.connect(keys.MONGO_URI);
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000, //30 day expiration
-    keys: [keys.COOKIE_KEY]
+    keys: [keys.cookieKey]
   })
 );
 app.use(passport.initialize());
